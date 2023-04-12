@@ -1,4 +1,13 @@
+import * as dotenv from "dotenv";
 import { server } from "./server";
+import { db } from "./database/mongo";
+
+dotenv.config();
+
+db.on("error", console.log.bind(console, ""));
+db.once("open", () => {
+    console.log("Mongo Database connection OK");
+});
 
 const port = process.env.PORT || 3333;
 
