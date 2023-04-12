@@ -1,7 +1,7 @@
 import { Router } from "express";
 import { StatusCodes } from "http-status-codes";
 import { db } from "../database/mongo";
-import { pokemons } from "../models/Pokemon";
+import { users } from "../models/User";
 
 export const router = Router();
 
@@ -18,16 +18,16 @@ router.get("/", (req, res) => {
     });
 });
 
-router.route("/pokemons")
+router.route("/users")
     .get((req, res) => {
-        pokemons.find()
+        users.find()
             .then((data: any) => {
                 res.status(StatusCodes.OK).json(data);
             });
     })
     .post((req, res) => {
-        const pokemon = new pokemons(req.body);
-        pokemon.save()
+        const user = new users(req.body);
+        user.save()
             .then(() => {
                 res.sendStatus(StatusCodes.CREATED);
             });
