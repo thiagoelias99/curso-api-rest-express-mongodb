@@ -3,8 +3,8 @@ import { StatusCodes } from "http-status-codes";
 import { UsersProvider } from "../../database/mongo/providers";
 
 
-export const get = async (req: Request, res: Response) => {
-    const data = await UsersProvider.get();
+export const getAll = async (req: Request, res: Response) => {
+    const data = await UsersProvider.getAll();
 
     if (data) {
         res.status(StatusCodes.OK).json(data);

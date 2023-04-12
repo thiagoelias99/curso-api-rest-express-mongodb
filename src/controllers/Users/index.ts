@@ -1,9 +1,11 @@
-import * as get from "./Get";
+import * as getAll from "./Get";
 import * as post from "./Post";
+import * as updateById from "./Put";
 import * as deleteById from "./Delete";
 
 export const UsersController = {
-    ...get,
+    ...getAll,
     ...post,
+    ...updateById,
     ...deleteById
 };

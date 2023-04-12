@@ -8,12 +8,7 @@ interface IParams {
 }
 
 export const updateById = async (req: Request<IParams, Omit<IUser, "id">>, res: Response) => {
-    const user = {
-        id: req.params.id,
-        ...req.body
-    };
-
-    const result = await UsersProvider.updateById(user);
+    const result = await UsersProvider.updateById(req.params.id, req.body);
 
     if (result) {
         res.sendStatus(StatusCodes.OK);
