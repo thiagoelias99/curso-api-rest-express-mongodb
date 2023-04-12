@@ -3,6 +3,7 @@ import { StatusCodes } from "http-status-codes";
 
 import { db } from "../database/mongo";
 import { users } from "../database/mongo/entities";
+import { UsersController } from "../controllers/Users";
 
 export const router = Router();
 
@@ -20,12 +21,7 @@ router.get("/", (req, res) => {
 });
 
 router.route("/users")
-    .get((req, res) => {
-        users.find()
-            .then((data: any) => {
-                res.status(StatusCodes.OK).json(data);
-            });
-    })
+    .get(UsersController.get)
     .post((req, res) => {
         const user = new users(req.body);
         user.save()
