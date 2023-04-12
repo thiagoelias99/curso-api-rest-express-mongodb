@@ -1,13 +1,14 @@
 import { Router } from "express";
 import { StatusCodes } from "http-status-codes";
+import { db } from "../database/mongo";
+import { pokemons } from "../models/Pokemon";
 
 export const router = Router();
 
-const pokemons = [
-    { id: 1, nome: "Charmander" },
-    { id: 2, nome: "Bulbasaur" },
-    { id: 3, nome: "Squirtle" },
-];
+db.on("error", console.log.bind(console, ""));
+db.once("open", () => {
+    console.log("Mongo Database connection OK");
+});
 
 router.get("/", (req, res) => {
     const data = new Date();
@@ -19,8 +20,15 @@ router.get("/", (req, res) => {
 
 router.route("/pokemons")
     .get((req, res) => {
-        res.status(StatusCodes.OK).json(pokemons);
+        pokemons.find()
+            .then((data: any) => {
+                res.status(StatusCodes.OK).json(data);
+            });
     })
     .post((req, res) => {
-        res.status(StatusCodes.CREATED).json(pokemons);
-    });
+        const pokemon = new pokemons(req.body);
+        pokemon.save()
+            .then(() => {
+                res.sendStatus(StatusCodes.CREATED);
+            });
+    }); 
