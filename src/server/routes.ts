@@ -1,7 +1,8 @@
 import { Router } from "express";
 import { StatusCodes } from "http-status-codes";
+
 import { db } from "../database/mongo";
-import { users } from "../models/User";
+import { users } from "../database/mongo/entities";
 
 export const router = Router();
 
