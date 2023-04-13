@@ -1,11 +1,11 @@
-import * as getAll from "./Get";
+import * as get from "./Get";
 import * as post from "./Post";
-import * as updateById from "./Put";
-import * as deleteById from "./Delete";
+import * as put from "./Put";
+import * as del from "./Delete";
 
 export const UsersController = {
-    ...getAll,
+    ...get,
     ...post,
-    ...updateById,
-    ...deleteById
+    ...put,
+    ...del
 };

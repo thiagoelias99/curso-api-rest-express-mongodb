@@ -18,5 +18,6 @@ router.route("/users")
     .post(UsersController.post);
 
 router.route("/users/:id")
+    .get(UsersController.getById)
     .put(UsersController.updateById)
     .delete(UsersController.deleteById);
