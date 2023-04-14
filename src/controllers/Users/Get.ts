@@ -2,9 +2,16 @@ import { Request, Response } from "express";
 import { StatusCodes } from "http-status-codes";
 import { UsersProvider } from "../../database/mongo/providers";
 
+interface IQuery {
+    field: string | null
+    value: string | null
+}
 
-export const getAll = async (req: Request, res: Response) => {
-    const data = await UsersProvider.getAll();
+export const getAll = async (req: Request<any, any, any, IQuery>, res: Response) => {
+    const data = await UsersProvider.getAll(
+        req.query.field == "" ? null : req.query.field,
+        req.query.value == "" ? null : req.query.value
+    );
 
     if (data) {
         res.status(StatusCodes.OK).json(data);
