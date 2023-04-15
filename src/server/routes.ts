@@ -4,7 +4,8 @@ import { StatusCodes } from "http-status-codes";
 import {
     UsersController,
     ClientsController,
-    AccountsController
+    AccountsController,
+    AddressesController
 } from "../controllers";
 
 export const router = Router();
@@ -43,3 +44,12 @@ router.route("/accounts/:id")
     .get(AccountsController.getById)
     .put(AccountsController.updateById)
     .delete(AccountsController.deleteById);
+
+router.route("/addresses")
+    .get(AddressesController.getAll)
+    .post(AddressesController.post);
+
+router.route("/addresses/:id")
+    .get(AddressesController.getById)
+    .put(AddressesController.updateById)
+    .delete(AddressesController.deleteById);
