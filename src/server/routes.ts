@@ -1,7 +1,11 @@
 import { Router } from "express";
 import { StatusCodes } from "http-status-codes";
 
-import { UsersController, ClientsController } from "../controllers";
+import {
+    UsersController,
+    ClientsController,
+    AccountsController
+} from "../controllers";
 
 export const router = Router();
 
@@ -30,3 +34,12 @@ router.route("/clients/:id")
     .get(ClientsController.getById)
     .put(ClientsController.updateById)
     .delete(ClientsController.deleteById);
+
+router.route("/accounts")
+    .get(AccountsController.getAll)
+    .post(AccountsController.post);
+
+router.route("/accounts/:id")
+    .get(AccountsController.getById)
+    .put(AccountsController.updateById)
+    .delete(AccountsController.deleteById);
