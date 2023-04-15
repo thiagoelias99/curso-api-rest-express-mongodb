@@ -5,9 +5,13 @@ export const getAll = async (filterField: string | null = null, filterValue: str
     let data: IUser[];
 
     if (filterField && filterValue) {
-        const search = `${filterValue.toLowerCase()}|${filterValue.toUpperCase()}|${capitalize(filterValue)}`;
+        const regex = RegExp(filterValue, "gmi");
+        data = await users.find({ [filterField]: regex });
 
-        data = await users.find({ [filterField]: RegExp(search, "gm") });
+    } else if (filterValue) {
+        const regex = RegExp(filterValue, "gmi");
+        data = await users.find().or([{ name: regex }, { email: regex }]);
+
     } else {
         data = await users.find();
     }
@@ -18,7 +22,3 @@ export const getById = async (id: string) => {
     const data: IUser | null = await users.findById(id);
     return data;
 };
-
-function capitalize(str: string) {
-    return str.charAt(0).toUpperCase() + str.slice(1);
-}
