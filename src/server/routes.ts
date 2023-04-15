@@ -8,7 +8,7 @@ export const router = Router();
 router.get("/", (req, res) => {
     const data = new Date();
     res.status(StatusCodes.OK).json({
-        msg: "Hello World",
+        msg: "Hello to App",
         time: data
     });
 });
