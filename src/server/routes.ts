@@ -2,10 +2,8 @@ import { Router } from "express";
 import { StatusCodes } from "http-status-codes";
 
 import {
-    UsersController,
     ClientsController,
-    AccountsController,
-    AddressesController
+    AccountsController
 } from "../controllers";
 
 export const router = Router();
@@ -17,15 +15,6 @@ router.get("/", (req, res) => {
         time: data
     });
 });
-
-router.route("/users")
-    .get(UsersController.getAll)
-    .post(UsersController.post);
-
-router.route("/users/:id")
-    .get(UsersController.getById)
-    .put(UsersController.updateById)
-    .delete(UsersController.deleteById);
 
 router.route("/clients")
     .get(ClientsController.getAll)
@@ -44,12 +33,3 @@ router.route("/accounts/:id")
     .get(AccountsController.getById)
     .put(AccountsController.updateById)
     .delete(AccountsController.deleteById);
-
-router.route("/addresses")
-    .get(AddressesController.getAll)
-    .post(AddressesController.post);
-
-router.route("/addresses/:id")
-    .get(AddressesController.getById)
-    .put(AddressesController.updateById)
-    .delete(AddressesController.deleteById);

@@ -1,11 +1,14 @@
+import { IAddress } from "./IAddress";
+
 export interface IClient {
     id?: string
     name: string
     cpf: string
-    birthday: Date
+    birthday_UTC: Date
     gender: EGender
-    ocuppation: string
+    occupation: string
     maritalStatus: EMaritalStatus
+    addresses:[IAddress]
 }
 
 export enum EGender {

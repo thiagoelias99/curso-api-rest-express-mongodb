@@ -8,10 +8,11 @@ const clientSchema = new Schema<IClient>(
         id: { type: String },
         name: { type: String, require: true },
         cpf: { type: String, require: true },
-        birthday: { type: Date, require: true },
+        birthday_UTC: { type: Date, require: true },
         gender: { type: String, require: true },
-        ocuppation: { type: String, require: true },
+        occupation: { type: String, require: true },
         maritalStatus: { type: String, require: true },
+        addresses: { type: [], required: true }
     }
 );
 

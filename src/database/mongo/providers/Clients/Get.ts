@@ -12,7 +12,7 @@ export const getAll = async (filterField: string | null = null, filterValue: str
         const regex = RegExp(filterValue, "gmi");
         data = await clients.find().or([
             { name: regex },
-            { ocuppation: regex },
+            { occupation: regex },
             { maritalStatus: regex }
         ]);
 
