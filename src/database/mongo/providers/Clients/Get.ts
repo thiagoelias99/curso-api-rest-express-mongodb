@@ -1,5 +1,6 @@
 import { IClient } from "../../../../models";
-import { clients } from "../../entities";
+import { ETableNames } from "../../../ETableNames";
+import { clients, accounts } from "../../entities";
 
 export const getAll = async (filterField: string | null = null, filterValue: string | null = null) => {
     let data: IClient[];
@@ -10,14 +11,16 @@ export const getAll = async (filterField: string | null = null, filterValue: str
 
     } else if (filterValue) {
         const regex = RegExp(filterValue, "gmi");
-        data = await clients.find().or([
-            { name: regex },
-            { occupation: regex },
-            { maritalStatus: regex }
-        ]);
+        data = await clients.find()
+            .or([
+                { name: regex },
+                { occupation: regex },
+                { maritalStatus: regex }
+            ])
+            .populate("accounts");
 
     } else {
-        data = await clients.find();
+        data = await clients.find().populate("accounts");
     }
     return data;
 };

@@ -1,7 +1,8 @@
 import { Schema, model } from "mongoose";
 
-import { IClient } from "../../../models";
+import { IAccount, IClient } from "../../../models";
 import { ETableNames } from "../../ETableNames";
+import { accounts } from "./Account";
 
 const clientSchema = new Schema<IClient>(
     {
@@ -12,8 +13,19 @@ const clientSchema = new Schema<IClient>(
         gender: { type: String, require: true },
         occupation: { type: String, require: true },
         maritalStatus: { type: String, require: true },
-        addresses: { type: [], required: true }
+        addresses: { type: [], required: true },
+    },
+    {
+        versionKey: false,
+        toJSON: { virtuals: true },
+        toObject: { virtuals: true }
     }
 );
+
+clientSchema.virtual("accounts", {
+    ref: ETableNames.accounts,
+    localField: "cpf",
+    foreignField: "cpf"
+});
 
 export const clients = model<IClient>(ETableNames.clients, clientSchema);

@@ -1,3 +1,4 @@
+import { IAccount } from "./IAccount";
 import { IAddress } from "./IAddress";
 
 export interface IClient {
@@ -8,7 +9,8 @@ export interface IClient {
     gender: EGender
     occupation: string
     maritalStatus: EMaritalStatus
-    addresses:[IAddress]
+    addresses: IAddress[]
+    accounts: IAccount[]
 }
 
 export enum EGender {
@@ -16,7 +18,7 @@ export enum EGender {
     Masculino = "Masculino"
 }
 
-export enum EMaritalStatus{
+export enum EMaritalStatus {
     Casado = "Casado(a)",
     Viuvo = "Viúvo(a)",
     Divorciado = "Divorciado(a)",

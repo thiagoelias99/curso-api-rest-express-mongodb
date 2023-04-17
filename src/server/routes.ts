@@ -1,5 +1,6 @@
 import { Router } from "express";
 import { StatusCodes } from "http-status-codes";
+import { welcome } from "./welcome";
 
 import {
     ClientsController,
@@ -9,11 +10,7 @@ import {
 export const router = Router();
 
 router.get("/", (req, res) => {
-    const data = new Date();
-    res.status(StatusCodes.OK).json({
-        msg: "Hello to App",
-        time: data
-    });
+    res.status(StatusCodes.OK).send(welcome());
 });
 
 router.route("/clients")

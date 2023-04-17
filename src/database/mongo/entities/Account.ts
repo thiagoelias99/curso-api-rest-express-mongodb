@@ -11,6 +11,11 @@ const accountSchema = new Schema<IAccount>(
         branch: { type: Number, require: true },
         accountType: { type: String, require: true },
         balance: { type: Number, require: true },
+    },
+    {
+        versionKey: false,
+        toJSON: { virtuals: true },
+        toObject: { virtuals: true }
     }
 );
 
