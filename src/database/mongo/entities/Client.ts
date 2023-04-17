@@ -1,8 +1,7 @@
 import { Schema, model } from "mongoose";
 
-import { IAccount, IClient } from "../../../models";
+import { IClient } from "../../../models";
 import { ETableNames } from "../../ETableNames";
-import { accounts } from "./Account";
 
 const clientSchema = new Schema<IClient>(
     {
