@@ -1,6 +1,7 @@
 import { Request, Response } from "express";
 import { StatusCodes } from "http-status-codes";
 import { ClientsProvider } from "../../database/mongo/providers";
+import mongoose from "mongoose";
 
 interface IQuery {
     field: string | null
@@ -25,11 +26,19 @@ interface IParams {
 }
 
 export const getById = async (req: Request<IParams>, res: Response) => {
-    const data = await ClientsProvider.getById(req.params.id);
+    try {
+        const data = await ClientsProvider.getById(req.params.id);
 
-    if (data) {
-        res.status(StatusCodes.OK).json(data);
-    } else {
-        res.sendStatus(StatusCodes.NOT_FOUND);
+        if (data) {
+            res.status(StatusCodes.OK).json(data);
+        } else {
+            res.sendStatus(StatusCodes.NOT_FOUND);
+        }
+    } catch (error) {
+        if (error instanceof mongoose.Error.CastError) {
+            res.sendStatus(StatusCodes.BAD_REQUEST);
+        } else {
+            res.sendStatus(StatusCodes.INTERNAL_SERVER_ERROR);
+        }
     }
 };

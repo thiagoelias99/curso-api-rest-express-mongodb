@@ -6,11 +6,11 @@ import { ETableNames } from "../../ETableNames";
 const accountSchema = new Schema<IAccount>(
     {
         id: { type: String },
-        accountNumber: { type: String, require: true },
-        cpf: { type: String, require: true },
-        branch: { type: Number, require: true },
-        accountType: { type: String, require: true },
-        balance: { type: Number, require: true },
+        accountNumber: { type: String, required: true },
+        cpf: { type: String, required: true },
+        branch: { type: Number, required: true },
+        accountType: { type: String, required: true },
+        balance: { type: Number, required: true },
     },
     {
         versionKey: false,

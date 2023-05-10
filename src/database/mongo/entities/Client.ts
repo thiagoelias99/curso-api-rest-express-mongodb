@@ -6,12 +6,12 @@ import { ETableNames } from "../../ETableNames";
 const clientSchema = new Schema<IClient>(
     {
         id: { type: String },
-        name: { type: String, require: true },
-        cpf: { type: String, require: true },
-        birthday_UTC: { type: Date, require: true },
-        gender: { type: String, require: true },
-        occupation: { type: String, require: true },
-        maritalStatus: { type: String, require: true },
+        name: { type: String, required: true },
+        cpf: { type: String, required: true },
+        birthday_UTC: { type: Date, required: true },
+        gender: { type: String, required: true },
+        occupation: { type: String, required: true },
+        maritalStatus: { type: String, required: true },
         addresses: { type: [], required: true },
     },
     {
