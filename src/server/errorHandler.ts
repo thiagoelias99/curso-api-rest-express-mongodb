@@ -21,6 +21,6 @@ export function errorHandler(
     //Mongoose Errors
     if (err instanceof mongoose.Error.CastError) { mongooseCastError(err, res); return; }
 
-    //Not controlled Error
-    res.sendStatus(StatusCodes.IM_A_TEAPOT);
+    //Not controlled Errors
+    res.sendStatus(StatusCodes.INTERNAL_SERVER_ERROR);
 }
