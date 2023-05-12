@@ -15,7 +15,7 @@ router.get("/", (req, res) => {
 
 router.route("/clients")
     .get(ClientsController.getAll)
-    .post(ClientsController.post);
+    .post(ClientsController.postValidation ,ClientsController.post);
 
 router.route("/clients/:id")
     .get(ClientsController.getById)

@@ -1,5 +1,5 @@
-Criar erros por arquivo
-Criar middleware de tratamento de  erros.
+Criar erros por arquivo OK
+Criar middleware de tratamento de  erros. OK
 
 Erros de validação de dados
 

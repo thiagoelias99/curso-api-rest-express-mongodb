@@ -2,7 +2,7 @@ import { IAccount } from "./IAccount";
 import { IAddress } from "./IAddress";
 
 export interface IClient {
-    id?: string
+    uuid?: string
     name: string
     cpf: string
     birthday_UTC: Date

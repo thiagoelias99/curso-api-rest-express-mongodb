@@ -5,7 +5,7 @@ import { ETableNames } from "../../ETableNames";
 
 const clientSchema = new Schema<IClient>(
     {
-        id: { type: String },
+        uuid: { type: String },
         name: { type: String, required: true },
         cpf: { type: String, required: true },
         birthday_UTC: { type: Date, required: true },
