@@ -5,3 +5,5 @@ add totalcount getAll
 
 revisar clientes
 revisar accounts
+
+arrumar mongo cinsstring
