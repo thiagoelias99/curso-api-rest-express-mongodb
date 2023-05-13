@@ -4,7 +4,8 @@ import { welcome } from "./welcome";
 
 import {
     ClientsController,
-    AccountsController
+    AccountsController,
+    UsersController
 } from "../controllers";
 
 export const router = Router();
@@ -15,7 +16,7 @@ router.get("/", (req, res) => {
 
 router.route("/clients")
     .get(ClientsController.getAll)
-    .post(ClientsController.postValidation ,ClientsController.post);
+    .post(ClientsController.postValidation, ClientsController.post);
 
 router.route("/clients/:uuid")
     .get(ClientsController.getByIdValidation, ClientsController.getById)
@@ -30,3 +31,12 @@ router.route("/accounts/:id")
     .get(AccountsController.getById)
     .put(AccountsController.updateById)
     .delete(AccountsController.deleteById);
+
+router.route("/users")
+    .get(UsersController.getAll)
+    .post(UsersController.postValidation, UsersController.post);
+
+router.route("/users/:uuid")
+    .get(UsersController.getByIdValidation, UsersController.getById);
+// .put(UsersController.putValidation, UsersController.updateById)
+// .delete(UsersController.deleteValidation, UsersController.deleteById);
