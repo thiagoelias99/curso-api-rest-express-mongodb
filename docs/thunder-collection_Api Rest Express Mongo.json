@@ -1,94 +1,305 @@
 {
     "client": "Thunder Client",
     "collectionName": "Api Rest Express Mongo",
-    "dateExported": "2023-05-12T20:16:10.380Z",
+    "dateExported": "2023-05-13T20:40:56.260Z",
     "version": "1.1",
     "folders": [
         {
-            "_id": "692e975b-bb7f-4fbc-abac-8aec5f12cc00",
+            "_id": "ed9afc12-642c-44bc-a776-4228d07b01f0",
             "name": "Clients",
             "containerId": "",
-            "created": "2023-05-12T16:37:17.146Z",
+            "created": "2023-05-12T23:31:22.988Z",
             "sortNum": 10000
+        },
+        {
+            "_id": "097832e4-d5f0-49ae-9567-53a93537cd48",
+            "name": "Users",
+            "containerId": "",
+            "created": "2023-05-13T16:47:38.998Z",
+            "sortNum": 15000
+        },
+        {
+            "_id": "08f923c5-5bf7-41bf-9a86-f9005b460bc9",
+            "name": "Accounts",
+            "containerId": "",
+            "created": "2023-05-13T11:55:20.807Z",
+            "sortNum": 20000
         }
     ],
     "requests": [
         {
-            "_id": "5dc5f16f-8a06-4bed-909c-0d0132f29e2c",
-            "colId": "2a94cf23-a115-403a-a667-e51aa46146ea",
-            "containerId": "692e975b-bb7f-4fbc-abac-8aec5f12cc00",
+            "_id": "9d4180a8-71ba-42a5-9f0c-82bb6092f110",
+            "colId": "d77d7786-f1fb-4e2f-876b-6b9304d57a71",
+            "containerId": "ed9afc12-642c-44bc-a776-4228d07b01f0",
             "name": "Create",
             "url": "http://localhost:3333/clients",
             "method": "POST",
             "sortNum": 10000,
-            "created": "2023-05-12T16:37:34.364Z",
-            "modified": "2023-05-12T20:08:53.730Z",
+            "created": "2023-05-12T23:31:22.989Z",
+            "modified": "2023-05-13T16:07:55.773Z",
             "headers": [],
             "params": [],
             "body": {
                 "type": "json",
-                "raw": "{\n  \"name\": \"Thiago Elias\",\n  \"cpf\": \"123.456.789-\",\n  \"birthday_UTC\": \"09/05/1989\",\n  \"gender\": \"Masculino\",\n  \"occupation\": \"Engenheiro\",\n  \"maritalStatus\": \"Solteiro(a)\"\n}",
+                "raw": "{\n  \"name\": \"Annie\",\n  \"cpf\": \"854.789.456-87\",\n  \"birthday_UTC\": \"12/25/2000\",\n  \"gender\": \"Feminino\",\n  \"occupation\": \"Vadia\",\n  \"maritalStatus\": \"Viúvo(a)\",\n  \"addresses\": [\n    {\n      \"street\": \"Minha Rua\",\n      \"number\": \"200\",\n      \"district\": \"Jardim Paulista\",\n      \"city\": \"São José dos Campos\",\n      \"state\" : \"São Paulo\",\n      \"zipCode\": \"12.345-678\"\n    }\n  ]\n}",
                 "form": []
             },
             "tests": []
         },
         {
-            "_id": "62e2c491-31a4-4518-ab34-cb6e28334e56",
-            "colId": "2a94cf23-a115-403a-a667-e51aa46146ea",
-            "containerId": "692e975b-bb7f-4fbc-abac-8aec5f12cc00",
+            "_id": "16f6437c-ec4f-4d01-a909-548d2bd12a3b",
+            "colId": "d77d7786-f1fb-4e2f-876b-6b9304d57a71",
+            "containerId": "08f923c5-5bf7-41bf-9a86-f9005b460bc9",
+            "name": "Create",
+            "url": "http://localhost:3333/accounts",
+            "method": "POST",
+            "sortNum": 10000,
+            "created": "2023-05-13T11:55:20.807Z",
+            "modified": "2023-05-13T11:56:24.248Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"name\": \"Thiago Elias 4\",\n  \"cpf\": \"123.456.789-78\",\n  \"birthday_UTC\": \"12/25/2000\",\n  \"gender\": \"Masculino\",\n  \"occupation\": \"Engenheiro\",\n  \"maritalStatus\": \"Solteiro(a)\",\n  \"addresses\": [\n    {\n      \"street\": \"Minha Rua\",\n      \"number\": \"200\",\n      \"district\": \"Jardim Paulista\",\n      \"city\": \"São José dos Campos\",\n      \"state\" : \"São Paulo\",\n      \"zipCode\": \"12.345-678\"\n    }\n  ]\n}",
+                "form": []
+            },
+            "tests": []
+        },
+        {
+            "_id": "ae3bbfdd-58d7-47fe-b3de-4ef920cb4bdb",
+            "colId": "d77d7786-f1fb-4e2f-876b-6b9304d57a71",
+            "containerId": "097832e4-d5f0-49ae-9567-53a93537cd48",
+            "name": "Create",
+            "url": "http://localhost:3333/users",
+            "method": "POST",
+            "sortNum": 10000,
+            "created": "2023-05-13T16:47:38.998Z",
+            "modified": "2023-05-13T16:49:43.270Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"name\": \"Thiago\",\n  \"password\": \"123456\",\n  \"email\": \"thiago@email.com\"\n}",
+                "form": []
+            },
+            "tests": []
+        },
+        {
+            "_id": "39886714-c0f6-4cb3-90c5-454f8c857b50",
+            "colId": "d77d7786-f1fb-4e2f-876b-6b9304d57a71",
+            "containerId": "ed9afc12-642c-44bc-a776-4228d07b01f0",
             "name": "Update",
-            "url": "http://localhost:3333/clients/643c925edc2332ca3355e90f",
+            "url": "http://localhost:3333/clients/643c929cdc2332ca3355e915",
             "method": "PUT",
             "sortNum": 15000,
-            "created": "2023-05-12T16:54:11.230Z",
-            "modified": "2023-05-12T16:56:06.192Z",
+            "created": "2023-05-12T23:31:22.990Z",
+            "modified": "2023-05-13T12:34:00.238Z",
             "headers": [],
             "params": [],
             "body": {
                 "type": "json",
-                "raw": "{\n    \"name\": \"Thiago\",\n    \"cpf\": \"111.222.333-44\",\n    \"birthday_UTC\": \"1992-12-18T02:00:00.000Z\",\n    \"gender\": \"Masculino\",\n    \"occupation\": \"Engenheiro\",\n    \"maritalStatus\": \"Solteiro(a)\"\n}",
+                "raw": "{\n  \"occupation\": \"Engenheiro\",\n  \"maritalStatus\": \"Solteiro(a)\",\n  \"addresses\": [\n    {\n      \"street\": \"Minha Rua 2\",\n      \"number\": \"200\",\n      \"district\": \"Jardim Paulista\",\n      \"city\": \"São José dos Campos\",\n      \"state\" : \"São Paulo\",\n      \"zipCode\": \"12.345-678\"\n    }\n  ]\n}",
                 "form": []
             },
             "tests": []
         },
         {
-            "_id": "70864149-2636-4dc3-a84e-05bbe7fb57c1",
-            "colId": "2a94cf23-a115-403a-a667-e51aa46146ea",
-            "containerId": "692e975b-bb7f-4fbc-abac-8aec5f12cc00",
+            "_id": "556a6df3-d007-4742-8afe-bad79044a8cb",
+            "colId": "d77d7786-f1fb-4e2f-876b-6b9304d57a71",
+            "containerId": "08f923c5-5bf7-41bf-9a86-f9005b460bc9",
+            "name": "Update",
+            "url": "http://localhost:3333/accounts/643c929cdc2332ca3355e915",
+            "method": "PUT",
+            "sortNum": 15000,
+            "created": "2023-05-13T11:55:20.808Z",
+            "modified": "2023-05-13T11:56:51.444Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"name\": \"Thiago Elias\",\n  \"cpf\": \"123.456.789-78\",\n  \"birthday_UTC\": \"12/25/2000\",\n  \"gender\": \"Masculino\",\n  \"occupation\": \"Engenheiro\",\n  \"maritalStatus\": \"Solteiro(a)\",\n  \"addresses\": [\n    {\n      \"street\": \"Minha Rua 2\",\n      \"number\": \"200\",\n      \"district\": \"Jardim Paulista\",\n      \"city\": \"São José dos Campos\",\n      \"state\" : \"São Paulo\",\n      \"zipCode\": \"12.345-678\"\n    }\n  ]\n}",
+                "form": []
+            },
+            "tests": []
+        },
+        {
+            "_id": "d9fa620e-253d-47b7-8299-3e73cfcac3d2",
+            "colId": "d77d7786-f1fb-4e2f-876b-6b9304d57a71",
+            "containerId": "097832e4-d5f0-49ae-9567-53a93537cd48",
+            "name": "Update",
+            "url": "http://localhost:3333/users/643c929cdc2332ca3355e915",
+            "method": "PUT",
+            "sortNum": 15000,
+            "created": "2023-05-13T16:47:38.999Z",
+            "modified": "2023-05-13T16:48:20.886Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"occupation\": \"Engenheiro\",\n  \"maritalStatus\": \"Solteiro(a)\",\n  \"addresses\": [\n    {\n      \"street\": \"Minha Rua 2\",\n      \"number\": \"200\",\n      \"district\": \"Jardim Paulista\",\n      \"city\": \"São José dos Campos\",\n      \"state\" : \"São Paulo\",\n      \"zipCode\": \"12.345-678\"\n    }\n  ]\n}",
+                "form": []
+            },
+            "tests": []
+        },
+        {
+            "_id": "5e751ad8-cd61-46e1-b47c-88b2ce9e908b",
+            "colId": "d77d7786-f1fb-4e2f-876b-6b9304d57a71",
+            "containerId": "ed9afc12-642c-44bc-a776-4228d07b01f0",
             "name": "Get All",
-            "url": "http://localhost:3333/clients",
+            "url": "http://localhost:3333/clients?search=thi",
             "method": "GET",
             "sortNum": 20000,
-            "created": "2023-05-12T16:44:55.998Z",
-            "modified": "2023-05-12T16:45:06.061Z",
+            "created": "2023-05-12T23:31:22.991Z",
+            "modified": "2023-05-13T16:12:38.959Z",
+            "headers": [],
+            "params": [
+                {
+                    "name": "page",
+                    "value": "1",
+                    "isDisabled": true,
+                    "isPath": false
+                },
+                {
+                    "name": "limit",
+                    "value": "5",
+                    "isDisabled": true,
+                    "isPath": false
+                },
+                {
+                    "name": "search",
+                    "value": "thi",
+                    "isPath": false
+                }
+            ],
+            "tests": []
+        },
+        {
+            "_id": "8918e0d9-083b-412d-9d31-08f4b2cb17ff",
+            "colId": "d77d7786-f1fb-4e2f-876b-6b9304d57a71",
+            "containerId": "08f923c5-5bf7-41bf-9a86-f9005b460bc9",
+            "name": "Get All",
+            "url": "http://localhost:3333/accounts",
+            "method": "GET",
+            "sortNum": 20000,
+            "created": "2023-05-13T11:55:20.810Z",
+            "modified": "2023-05-13T11:56:56.779Z",
             "headers": [],
             "params": [],
             "tests": []
         },
         {
-            "_id": "b61ab247-4ddf-4ecc-9743-5e2c97f0c74e",
-            "colId": "2a94cf23-a115-403a-a667-e51aa46146ea",
-            "containerId": "692e975b-bb7f-4fbc-abac-8aec5f12cc00",
+            "_id": "70f914a8-2b39-4c8d-89bd-9b28f61c1970",
+            "colId": "d77d7786-f1fb-4e2f-876b-6b9304d57a71",
+            "containerId": "097832e4-d5f0-49ae-9567-53a93537cd48",
+            "name": "Get All",
+            "url": "http://localhost:3333/users",
+            "method": "GET",
+            "sortNum": 20000,
+            "created": "2023-05-13T16:47:39.000Z",
+            "modified": "2023-05-13T16:48:49.696Z",
+            "headers": [],
+            "params": [
+                {
+                    "name": "page",
+                    "value": "1",
+                    "isDisabled": true,
+                    "isPath": false
+                },
+                {
+                    "name": "limit",
+                    "value": "5",
+                    "isDisabled": true,
+                    "isPath": false
+                },
+                {
+                    "name": "search",
+                    "value": "thi",
+                    "isDisabled": true,
+                    "isPath": false
+                }
+            ],
+            "tests": []
+        },
+        {
+            "_id": "7c3a2d55-d92c-4469-aa34-af4c476ec205",
+            "colId": "d77d7786-f1fb-4e2f-876b-6b9304d57a71",
+            "containerId": "ed9afc12-642c-44bc-a776-4228d07b01f0",
             "name": "Get by Id",
-            "url": "http://localhost:3333/clients/643c70680c4be0f1820dfe7d",
+            "url": "http://localhost:3333/clients/643c929cdc2332ca3355e915",
             "method": "GET",
             "sortNum": 25000,
-            "created": "2023-05-12T19:06:16.264Z",
-            "modified": "2023-05-12T19:06:45.285Z",
+            "created": "2023-05-12T23:31:22.992Z",
+            "modified": "2023-05-13T12:13:08.850Z",
             "headers": [],
             "params": [],
             "tests": []
         },
         {
-            "_id": "ff6ae71e-73cf-4393-94f3-35ff806af053",
-            "colId": "2a94cf23-a115-403a-a667-e51aa46146ea",
-            "containerId": "692e975b-bb7f-4fbc-abac-8aec5f12cc00",
+            "_id": "6e1930c7-2650-47b1-8a0c-e012660b87ce",
+            "colId": "d77d7786-f1fb-4e2f-876b-6b9304d57a71",
+            "containerId": "08f923c5-5bf7-41bf-9a86-f9005b460bc9",
+            "name": "Get by Id",
+            "url": "http://localhost:3333/accounts/645f7a492be2f27b13c622d9",
+            "method": "GET",
+            "sortNum": 25000,
+            "created": "2023-05-13T11:55:20.811Z",
+            "modified": "2023-05-13T11:57:01.611Z",
+            "headers": [],
+            "params": [],
+            "tests": []
+        },
+        {
+            "_id": "365d928c-8e96-437d-af4f-cfc6527dec78",
+            "colId": "d77d7786-f1fb-4e2f-876b-6b9304d57a71",
+            "containerId": "097832e4-d5f0-49ae-9567-53a93537cd48",
+            "name": "Get by Id",
+            "url": "http://localhost:3333/users/645fbfa7a9c59bc9bcec2883",
+            "method": "GET",
+            "sortNum": 25000,
+            "created": "2023-05-13T16:47:39.001Z",
+            "modified": "2023-05-13T16:50:08.432Z",
+            "headers": [],
+            "params": [],
+            "tests": []
+        },
+        {
+            "_id": "cc148de4-6837-4c9f-bd2e-eda48e276171",
+            "colId": "d77d7786-f1fb-4e2f-876b-6b9304d57a71",
+            "containerId": "ed9afc12-642c-44bc-a776-4228d07b01f0",
             "name": "Delete",
             "url": "http://localhost:3333/clients/645e6d3aefad59ae84b95517",
             "method": "DELETE",
             "sortNum": 30000,
-            "created": "2023-05-12T16:46:09.951Z",
-            "modified": "2023-05-12T16:46:59.257Z",
+            "created": "2023-05-12T23:31:22.993Z",
+            "modified": "2023-05-12T23:31:22.993Z",
+            "headers": [],
+            "params": [],
+            "tests": []
+        },
+        {
+            "_id": "c5be0b61-845e-40d8-a190-6e45fae6643f",
+            "colId": "d77d7786-f1fb-4e2f-876b-6b9304d57a71",
+            "containerId": "08f923c5-5bf7-41bf-9a86-f9005b460bc9",
+            "name": "Delete",
+            "url": "http://localhost:3333/accounts/645e6d3aefad59ae84b95517",
+            "method": "DELETE",
+            "sortNum": 30000,
+            "created": "2023-05-13T11:55:20.812Z",
+            "modified": "2023-05-13T11:57:05.853Z",
+            "headers": [],
+            "params": [],
+            "tests": []
+        },
+        {
+            "_id": "a17ddfd6-03c1-41fa-af35-50fc6710eb79",
+            "colId": "d77d7786-f1fb-4e2f-876b-6b9304d57a71",
+            "containerId": "097832e4-d5f0-49ae-9567-53a93537cd48",
+            "name": "Delete",
+            "url": "http://localhost:3333/users/645e6d3aefad59ae84b95517",
+            "method": "DELETE",
+            "sortNum": 30000,
+            "created": "2023-05-13T16:47:39.002Z",
+            "modified": "2023-05-13T16:48:29.213Z",
             "headers": [],
             "params": [],
             "tests": []
