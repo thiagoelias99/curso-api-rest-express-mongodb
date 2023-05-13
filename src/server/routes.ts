@@ -17,10 +17,10 @@ router.route("/clients")
     .get(ClientsController.getAll)
     .post(ClientsController.postValidation ,ClientsController.post);
 
-router.route("/clients/:id")
-    .get(ClientsController.getById)
+router.route("/clients/:uuid")
+    .get(ClientsController.getByIdValidation, ClientsController.getById)
     .put(ClientsController.putValidation, ClientsController.updateById)
-    .delete(ClientsController.deleteById);
+    .delete(ClientsController.deleteValidation, ClientsController.deleteById);
 
 router.route("/accounts")
     .get(AccountsController.getAll)

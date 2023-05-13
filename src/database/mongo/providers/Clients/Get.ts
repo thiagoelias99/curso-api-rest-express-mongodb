@@ -1,31 +1,26 @@
 import { IClient } from "../../../../models";
 import { clients } from "../../entities";
 
-export const getAll = async (filterField: string | null = null, filterValue: string | null = null) => {
-    let data: IClient[];
+interface IQuery {
+    field: string | null
+    value: string | null
+    search: string
+    page: number
+    limit: number
+}
+// export const getAll = async (filterField: string | null = null, filterValue: string | null = null) => {
+export const getAll = async ({ search, page = 1, limit = 3 }: IQuery) => {
+    const searchRegex = RegExp(search? search : "", "i");
 
-    if (filterField && filterValue) {
-        const regex = RegExp(filterValue, "gmi");
-        data = await clients
-            .find({ [filterField]: regex })
-            .populate("accounts", "accountType balance -cpf -_id");
-
-    } else if (filterValue) {
-        const regex = RegExp(filterValue, "gmi");
-        data = await clients
-            .find()
-            .or([
-                { name: regex },
-                { occupation: regex },
-                { maritalStatus: regex }
-            ])
-            .populate("accounts", "accountType balance -cpf -_id");
-
-    } else {
-        data = await clients
-            .find()
-            .populate("accounts", "accountType balance -cpf -_id");
-    }
+    const data: IClient[] = await clients.find({
+        $or: [
+            {name: searchRegex},
+            {occupation: searchRegex},
+            {maritalStatus: searchRegex}
+        ]
+    })
+        .limit(limit).skip((page - 1) * limit)
+        .populate("accounts", "accountType balance -cpf -_id");
     return data;
 };
 

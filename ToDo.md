@@ -1,11 +1,5 @@
-Criar erros por arquivo OK
-Criar middleware de tratamento de  erros. OK
+add user
+add auth
 
-Erros de validação de dados
-
-Sistema de busca por query
-Retorno quando não encontrar
-
-Sistema de paginação
-
-middleware Ordenação por campo e ordem
+revisar clientes
+revisar accounts

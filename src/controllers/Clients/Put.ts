@@ -8,11 +8,11 @@ import * as yup from "yup";
 import { validation } from "../../server/middlewares/validation";
 
 interface IParams {
-    id: string
+    uuid: string
 }
 
 export const updateById = async (req: Request<IParams, Omit<IClient, "uuid">>, res: Response, next: NextFunction) => {
-    const uuid = req.params.id;
+    const uuid = req.params.uuid;
     const { addresses, maritalStatus, occupation } = req.body;
     const data: Pick<IClient, "addresses" | "maritalStatus" | "occupation"> = {
         addresses,
@@ -54,6 +54,6 @@ export const putValidation = validation((getSchema) => ({
     }))
     ,
     params: getSchema<IParams>(yup.object().shape({
-        id: yup.string().length(24).required()
+        uuid: yup.string().length(24).required()
     }))
 }));
