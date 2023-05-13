@@ -6,12 +6,12 @@ import { InternalServerError } from "../../errors";
 import { validation } from "../../server/middlewares/validation";
 import * as yup from "yup";
 
-export const post = async (req: Request<any, Omit<IClient, "id">>, res: Response, next: NextFunction) => {
+export const post = async (req: Request<any, Omit<IClient, "uuid">>, res: Response, next: NextFunction) => {
     try {
         const result = await ClientsProvider.insert(req.body);
 
         if (result) {
-            res.status(StatusCodes.CREATED).json({ id: result });
+            res.status(StatusCodes.CREATED).json({ uuid: result });
         } else {
             next(new InternalServerError(req, res,
                 "Internal Server Error - Can't create registry"
@@ -25,7 +25,7 @@ export const post = async (req: Request<any, Omit<IClient, "id">>, res: Response
 const cpfRegex = /^\d{3}\.\d{3}\.\d{3}-\d{2}$/;
 
 export const postValidation = validation((getSchema) => ({
-    body: getSchema<Omit<IClient, "uuid">>(yup.object().shape({
+    body: getSchema<Omit<IClient, "uuid" | "accounts">>(yup.object().shape({
         name: yup.string().required().min(1),
         cpf: yup.string().required().matches(cpfRegex, "cpf must match the following format: 000.000.000-00"),
         birthday_UTC: yup.date().required(),
@@ -40,8 +40,7 @@ export const postValidation = validation((getSchema) => ({
                 city: yup.string().required(),
                 state: yup.string().required(),
                 zipCode: yup.string().required(),
-            }).optional().default([])
-        ),
-        accounts: yup.array().optional().default([])
+            })
+        ).optional().default([])
     }))
 }));

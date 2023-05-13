@@ -3,7 +3,7 @@ import mongoose from "mongoose";
 import { StatusCodes } from "http-status-codes";
 
 import { InternalServerError, NotFoundError } from "../errors";
-import { mongooseCastError } from "../errors/mongoose";
+import { mongooseCastError, mongooseValidationError } from "../errors/mongoose";
 
 export function errorHandler(
     err: Error,
@@ -20,6 +20,7 @@ export function errorHandler(
 
     //Mongoose Errors
     if (err instanceof mongoose.Error.CastError) { mongooseCastError(err, res); return; }
+    if (err instanceof mongoose.Error.ValidationError) { mongooseValidationError(err, res); return; }
 
     //Not controlled Errors
     res.sendStatus(StatusCodes.INTERNAL_SERVER_ERROR);

@@ -9,7 +9,7 @@ export interface IClient {
     gender: EGender
     occupation: string
     maritalStatus: EMaritalStatus
-    addresses?: IAddress[]
+    addresses: IAddress[]
     accounts: IAccount[]
 }
 

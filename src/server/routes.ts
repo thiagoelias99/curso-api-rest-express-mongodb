@@ -19,7 +19,7 @@ router.route("/clients")
 
 router.route("/clients/:id")
     .get(ClientsController.getById)
-    .put(ClientsController.updateById)
+    .put(ClientsController.putValidation, ClientsController.updateById)
     .delete(ClientsController.deleteById);
 
 router.route("/accounts")
