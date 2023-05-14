@@ -18,5 +18,10 @@ const startServer = () => {
 db.on("error", console.log.bind(console, ""));
 db.once("open", () => {
     console.log("Mongo Database connection OK");
-    startServer();
+    try {
+        startServer();
+    } catch (error) {
+        console.log(error);
+        console.log("Server Stopped");
+    }
 });
