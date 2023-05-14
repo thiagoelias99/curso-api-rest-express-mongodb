@@ -1,9 +1,5 @@
-
-add auth / crypt
-
 add totalcount getAll
+add auth / crypt
 
 revisar clientes
 revisar accounts
-
-arrumar mongo cinsstring
