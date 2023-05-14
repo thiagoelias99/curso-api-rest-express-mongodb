@@ -32,11 +32,6 @@ router.route("/accounts/:id")
     .put(AccountsController.updateById)
     .delete(AccountsController.deleteById);
 
-router.route("/users")
-    .get(UsersController.getAll)
-    .post(UsersController.postValidation, UsersController.post);
-
-router.route("/users/:uuid")
-    .get(UsersController.getByIdValidation, UsersController.getById);
-// .put(UsersController.putValidation, UsersController.updateById)
-// .delete(UsersController.deleteValidation, UsersController.deleteById);
+router.get("/users", UsersController.getAllValidation, UsersController.getAll);
+router.post("/signup", UsersController.signUpValidation, UsersController.signUp);
+router.post("/signin", UsersController.signInValidation, UsersController.signIn);

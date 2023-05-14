@@ -6,7 +6,7 @@ import { InternalServerError } from "../../errors";
 import { validation } from "../../server/middlewares/validation";
 import * as yup from "yup";
 
-export const post = async (req: Request<any, Omit<IUser, "uuid" | "signupDate" | "lastLogin">>, res: Response, next: NextFunction) => {
+export const signUp = async (req: Request<any, Omit<IUser, "uuid" | "signupDate" | "lastLogin">>, res: Response, next: NextFunction) => {
     try {
         const result = await UsersProvider.insert(req.body);
 
@@ -22,7 +22,7 @@ export const post = async (req: Request<any, Omit<IUser, "uuid" | "signupDate" |
     }
 };
 
-export const postValidation = validation((getSchema) => ({
+export const signUpValidation = validation((getSchema) => ({
     body: getSchema<Omit<IUser, "uuid" | "signupDate" | "lastLogin">>(yup.object().shape({
         name: yup.string().required().min(1),
         password: yup.string().required().min(5),

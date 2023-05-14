@@ -35,30 +35,25 @@ export const getAllValidation = validation((getSchema) => ({
     }))
 }));
 
-interface IParams {
-    uuid: string
-}
-
-export const getById = async (req: Request<IParams>, res: Response, next: NextFunction) => {
-    const uuid = req.params.uuid;
+export const signIn = async (req: Request<any, Omit<IUser, "name" | "uuid" | "signupDate" | "lastLogin">>, res: Response, next: NextFunction) => {
     try {
-        const data = await UsersProvider.getById(uuid);
+        // const data = await UsersProvider.signIn(req.body);
+        const data = null;
+        console.log(req.body);
 
         if (data) {
             res.status(StatusCodes.OK).json(data);
             return;
         }
-        next(new NotFoundError(req, res,
-            `User uuid = ${uuid} not found`
-        ));
-
+        next(new InternalServerError(req, res));
     } catch (error) {
         next(error);
     }
 };
 
-export const getByIdValidation = validation((getSchema) => ({
-    params: getSchema<IParams>(yup.object().shape({
-        uuid: yup.string().length(24).required()
+export const signInValidation = validation((getSchema) => ({
+    body: getSchema<Omit<IUser, "uuid" | "name" | "signupDate" | "lastLogin">>(yup.object().shape({
+        password: yup.string().required().min(5),
+        email: yup.string().email().required()
     }))
 }));
