@@ -29,3 +29,27 @@ export const signUpValidation = validation((getSchema) => ({
         email: yup.string().email().required()
     }))
 }));
+
+export const signIn = async (req: Request<any, Omit<IUser, "name" | "uuid" | "signupDate" | "lastLogin">>, res: Response, next: NextFunction) => {
+    try {
+        const storedPassword = await UsersProvider.signIn(req.body.email);
+
+        const data = null;
+        console.log(storedPassword);
+
+        if (data) {
+            res.status(StatusCodes.OK).json(data);
+            return;
+        }
+        next(new InternalServerError(req, res));
+    } catch (error) {
+        next(error);
+    }
+};
+
+export const signInValidation = validation((getSchema) => ({
+    body: getSchema<Omit<IUser, "uuid" | "name" | "signupDate" | "lastLogin">>(yup.object().shape({
+        password: yup.string().required().min(5),
+        email: yup.string().email().required()
+    }))
+}));
